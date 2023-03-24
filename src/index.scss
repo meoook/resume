@@ -1,0 +1,269 @@
+@import './scss/nullstyle.scss';
+@import './scss/config.scss';
+@import './scss/tags.scss';
+
+$indent: 8px;
+
+.w-100 {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row,
+.column {
+  &.center {
+    align-items: center;
+  }
+  // &.stretch {
+  //   align-items: stretch;
+  // }
+  &.justify {
+    justify-content: space-between;
+  }
+  &.bottom {
+    align-items: flex-end;
+  }
+  &.middle {
+    justify-content: center;
+  }
+}
+
+// CREATE MIXIN and SO ON
+.col {
+  width: 100%;
+  position: relative;
+  &-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%;
+  }
+  &-2 {
+    flex: 0 0 16.66666%;
+    max-width: 16.66666%;
+  }
+  &-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  &-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+  &-5 {
+    flex: 0 0 41.66666%;
+    max-width: 41.66666%;
+  }
+  &-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  &-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+  &-8 {
+    flex: 0 0 66.66666%;
+    max-width: 66.66666%;
+  }
+  &-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  &-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+  &.offset {
+    &-1 {
+      margin-left: 8.33333%;
+    }
+    &-2 {
+      margin-left: 16.66666%;
+    }
+    &-3 {
+      margin-left: 25%;
+    }
+  }
+}
+// h - horisontal
+.m {
+  &-0 {
+    margin: $indent / 2 0;
+  }
+  &-1 {
+    margin: $indent 0;
+  }
+  &-2 {
+    margin: $indent * 2 0;
+  }
+  &-3 {
+    margin: $indent * 3 0;
+  }
+  &b-0 {
+    margin-bottom: $indent/2;
+  }
+  &b-1 {
+    margin-bottom: $indent;
+  }
+  &b-2 {
+    margin-bottom: $indent * 2;
+  }
+  &b-3 {
+    margin-bottom: $indent * 3;
+  }
+  &h {
+    &-1 {
+      margin-left: $indent;
+      margin-right: $indent;
+    }
+    &-2 {
+      margin-left: $indent * 2;
+      margin-right: $indent * 2;
+    }
+    &-3 {
+      margin-left: $indent * 3;
+      margin-right: $indent * 3;
+    }
+  }
+  &t {
+    &-0 {
+      margin-top: $indent/2;
+    }
+    &-1 {
+      margin-top: $indent;
+    }
+    &-2 {
+      margin-top: $indent * 2;
+    }
+    &-3 {
+      margin-top: $indent * 3;
+    }
+  }
+  &r {
+    &-0 {
+      margin-right: $indent/2;
+    }
+    &-1 {
+      margin-right: $indent;
+    }
+    &-2 {
+      margin-right: $indent * 2;
+    }
+    &-3 {
+      margin-right: $indent * 3;
+    }
+  }
+  &l {
+    &-0 {
+      margin-left: $indent/2;
+    }
+    &-1 {
+      margin-left: $indent;
+    }
+    &-2 {
+      margin-left: $indent * 2;
+    }
+    &-3 {
+      margin-left: $indent * 3;
+    }
+  }
+}
+.p {
+  &-0 {
+    padding-top: $indent / 2;
+    padding-bottom: $indent / 2;
+  }
+  &-1 {
+    padding-top: $indent;
+    padding-bottom: $indent;
+  }
+  &-2 {
+    padding-top: $indent * 2;
+    padding-bottom: $indent * 2;
+  }
+  &h {
+    &-1 {
+      padding-left: $indent;
+      padding-right: $indent;
+    }
+    &-2 {
+      padding-left: $indent * 2;
+      padding-right: $indent * 2;
+    }
+    &-3 {
+      padding-left: $indent * 3;
+      padding-right: $indent * 3;
+    }
+  }
+  &t {
+    &-0 {
+      padding-top: $indent/2;
+    }
+  }
+  &l {
+    &-1 {
+      padding-left: $indent;
+    }
+  }
+  &r {
+    &-0 {
+      padding-right: $indent/2;
+    }
+    &-1 {
+      padding-right: $indent;
+    }
+    &-2 {
+      padding-right: $indent * 2;
+    }
+    &-3 {
+      padding-right: $indent * 3;
+    }
+  }
+}
+// FIXIT - MB MEDIA PUT ON THE BOTTOM ? AND SIZE IN $variable
+@media screen and (min-width: 1200px) {
+  header,
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  header,
+  .container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  header,
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (max-width: 600px) {
+  header,
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.shadow-box {
+  background-color: var(--color-dialog);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius, 8px);
+  padding: var(--padding, 8px);
+  box-shadow: 0 2 4 var(--color-shadow) !important;
+}
+
+.disabled {
+  @extend %disabled;
+}

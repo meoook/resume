@@ -1,0 +1,124 @@
+:root {
+  --color-primary: #fff;
+  --color-secondary: #bbc;
+  --color-body: #1d1d23;
+  --color-head: #23232b;
+  --color-head-primary: #fff;
+  --color-head-secondary: #bbc;
+
+  --color-dialog: #262630;
+  --color-input: #282831;
+  --color-active: #2c2c35;
+
+  --color-shadow: #2222;
+  --color-border: #434a56;
+  --color-disabled: #505059;
+
+  --color-brand: #7545d2;
+  // MSG COLORS
+  --color-msg-default: #007bff;
+  --color-msg-info: #17a2b8;
+  --color-msg-success: #28a745;
+  --color-msg-warning: #ce9c09; //#eab000;
+  --color-msg-error: #dc3545;
+  // Sizes
+  --border: 1px;
+  --radius: 8px;
+  --padding: 8px;
+  --font-size-small: 14px;
+  --font-size: 20px;
+  --font-size-h1: 28px;
+  --font-size-h2: 24px;
+  // Other
+  --text-weight: 600;
+  --timer: 0.3s;
+}
+
+// mixins
+%absolute {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+%bd {
+  position: relative;
+  &::before {
+    content: '';
+    box-shadow: 0 0 3px 2px var(--color-brand), 0 0 3px 2px var(--color-brand) inset;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+  }
+  & > * {
+    position: relative;
+  }
+}
+
+%shadow {
+  box-shadow: 2px 4px 6px var(--color-shadow);
+}
+
+%disabled-cfg {
+  cursor: initial !important;
+  transform: none !important;
+  color: var(--color-secondary) !important;
+  background-color: transparent !important;
+  // & svg {
+  //   fill: var(--color-secondary) !important;
+  // }
+  pointer-events: none;
+}
+%disabled-bg {
+  background-size: 100px 100px !important;
+  background-image: linear-gradient(
+    45deg,
+    var(--color-input) 25%,
+    transparent 25%,
+    transparent 50%,
+    var(--color-input) 50%,
+    var(--color-input) 75%,
+    transparent 75%,
+    transparent
+  ) !important;
+}
+
+%disabled {
+  @extend %disabled-cfg;
+  @extend %disabled-bg;
+}
+
+@mixin color($color, $bd: false, $bg: false, $hover: false) {
+  color: $color;
+  @if $bd {
+    border-color: $color;
+    outline-color: $color;
+  }
+  @if $bg {
+    background: darken($color, 6%);
+    @if $hover {
+      &:hover {
+        background: darken($color, 5%);
+      }
+    }
+  }
+}
+
+@mixin colors($color, $hover: false) {
+  background: $color;
+  color: lighten($color, 30%);
+  border-color: lighten($color, 10%);
+  @if $hover {
+    &:hover {
+      background: lighten($color, 6%);
+    }
+  }
+  &:active {
+    background: darken($color, 1%);
+  }
+}

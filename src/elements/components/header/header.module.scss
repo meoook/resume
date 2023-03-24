@@ -1,0 +1,123 @@
+.header {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-head);
+  color: var(--color-head-primary);
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+  padding: 16px 32px;
+  font-size: var(--font-size);
+  font-weight: var(--text-weight, 600);
+  line-height: 1;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+  & > * {
+    display: inline-flex;
+    align-self: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    & > * {
+      margin-right: calc(var(--padding, 8px) * 2);
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  & .panel {
+    font-size: var(--font-size-h1);
+    & button {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      padding: var(--padding, 8px);
+      margin: calc(-1 * var(--padding, 8px));
+    }
+  }
+  & .menu {
+    display: none;
+  }
+  button:hover {
+    background-color: var(--color-border);
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    svg {
+      margin-right: var(--padding, 8px);
+    }
+  }
+  a:hover {
+    color: var(--color-head-secondary);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(to bottom, var(--color-shadow), transparent);
+    height: 10px;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    & {
+      padding-left: calc(var(--padding) * 6);
+      padding-right: calc(var(--padding) * 6);
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    & {
+      padding-left: calc(var(--padding) * 4);
+      padding-right: calc(var(--padding) * 4);
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    & {
+      width: 100%;
+    }
+    nav {
+      display: none;
+    }
+    & .menu {
+      display: inline-flex;
+    }
+    nav.visible {
+      z-index: 2;
+      display: inline-flex;
+      flex-direction: column;
+      position: absolute;
+      background-color: var(--color-head);
+      top: 65px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      align-items: stretch;
+      a {
+        padding: calc(var(--padding, 8px) * 2);
+        display: block;
+        text-align: center;
+        &:hover {
+          background-color: var(--color-border);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    & {
+      padding-left: calc(var(--padding) * 2);
+      padding-right: calc(var(--padding) * 2);
+    }
+  }
+}
+.bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+
+  cursor: default;
+}

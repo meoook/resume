@@ -1,0 +1,102 @@
+.toggle {
+  box-sizing: border-box;
+  height: 1em;
+  width: 2em;
+  border-radius: 0.5em;
+  border: 1px solid var(--color-border);
+  background-image: linear-gradient(aqua, skyblue);
+  position: relative;
+  cursor: pointer;
+  & > * {
+    transition: all 0.4s ease;
+  }
+  & .notch {
+    height: 0.9em;
+    width: 0.9em;
+    border-radius: 50%;
+    background-color: yellow;
+    position: absolute;
+    top: 0.04em;
+    left: 0.04em;
+    box-shadow: 0 0 5px yellow;
+    z-index: 1;
+    & > .crater {
+      background-color: burlywood;
+      border-radius: 50%;
+      position: absolute;
+      box-shadow: 0 5px 5px #0007 inset;
+      opacity: 0;
+      &:first-child {
+        left: 0.05em;
+        top: 0.15em;
+        height: 0.15em;
+        width: 0.4em;
+        transform: rotate(-45deg);
+      }
+      &:last-child {
+        right: 0.1em;
+        top: 0.15em;
+        height: 0.15em;
+        width: 0.25em;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  & .shape {
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    &.sm {
+      height: 0.05em;
+      width: 0.5em;
+      top: 50%;
+      left: 60%;
+    }
+    &.md {
+      height: 0.1em;
+      width: 0.75em;
+      top: 25%;
+      left: 25%;
+      z-index: 2;
+    }
+    &.lg {
+      height: 0.15em;
+      width: 1em;
+      bottom: 0.2em;
+      left: 25%;
+    }
+  }
+
+  &.night {
+    background-image: linear-gradient(midnightblue, rebeccapurple);
+    & .crater {
+      opacity: 0.4;
+    }
+    & .shape {
+      box-shadow: 0 0 5px 2px lightgray;
+      &.sm {
+        height: 0.05em;
+        width: 0.05em;
+        transform: translateX(-0.4em);
+        &:last-of-type {
+          transform: translate(-0.8em, -0.1em);
+        }
+      }
+      &.md {
+        height: 0.1em;
+        width: 0.1em;
+        transform: translateX(0.1em);
+      }
+      &.lg {
+        height: 0.15em;
+        width: 0.15em;
+        transform: translateX(-0.1em);
+      }
+    }
+  }
+  &.night > .notch {
+    background-color: whitesmoke;
+    box-shadow: 0 0 5px whitesmoke;
+    transform: translateX(1em);
+  }
+}
