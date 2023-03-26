@@ -12,7 +12,19 @@ export default function PageAbout(props: PageAboutProps) {
       <hr />
       <div>
         <FormattedMessage id='app.about.contact' />
-        &nbsp;
+      </div>
+      <div>
+        <FormattedMessage id='app.about.location' />
+      </div>
+      <div>
+        <FormattedMessage id='app.about.repository' />
+        :&nbsp;
+        <a href='https://github.com/meoook' className='underline' target='_blank'>
+          https://github.com/meoook
+        </a>
+      </div>
+      <div>
+        mail:&nbsp;
         <a href='mailto:meoook@gmail.com' className='underline'>
           meoook@gmail.com
         </a>

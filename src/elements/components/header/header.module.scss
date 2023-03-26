@@ -21,7 +21,7 @@
     align-items: center;
     flex-wrap: nowrap;
     & > * {
-      margin-right: calc(var(--padding, 8px) * 2);
+      margin-right: calc(var(--padding, 8px) * 3);
       &:last-child {
         margin-right: 0;
       }
@@ -32,7 +32,7 @@
     & button {
       border: 1px solid transparent;
       border-radius: 50%;
-      padding: var(--padding, 8px);
+      padding: 6px var(--padding, 8px);
       margin: calc(-1 * var(--padding, 8px));
     }
   }
@@ -89,12 +89,13 @@
       flex-direction: column;
       position: absolute;
       background-color: var(--color-head);
-      top: 65px;
+      top: 64px;
       left: 0;
       right: 0;
       text-align: center;
       align-items: stretch;
       a {
+        margin: 0;
         padding: calc(var(--padding, 8px) * 2);
         display: block;
         text-align: center;

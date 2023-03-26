@@ -9,7 +9,6 @@ import Container from './elements/components/container'
 import { IntlProvider } from 'react-intl'
 import en from './lang/en.json' // Import translations for English
 import ru from './lang/ru.json' // Import translations for Russian
-import PageTest from './elements/pages/PageTest'
 
 const messages: { [key: string]: any } = { en, ru } // Define an object containing all translation files
 
@@ -20,7 +19,6 @@ export default function App() {
         <Route path='/' element={<PageAbout />} />
         <Route path='/skills' element={<PageSkills />} />
         <Route path='/experience' element={<PageExperience />} />
-        <Route path='/test' element={<PageTest />} />
         <Route path='*' element={<Page404 />} />
       </Route>
     </Routes>
